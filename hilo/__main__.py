@@ -6,7 +6,7 @@ def can_play(points):
 
 def get_points(guess, nextCard, lastCard):
     #checks if the guess was right and returns the coorisponding points.
-    hl = nextcard-lastCard
+    hl = nextCard-lastCard
     if((hl>=0 and guess == 'h') or (hl<= 0 and guess == 'l')):
         return 100
     else:
