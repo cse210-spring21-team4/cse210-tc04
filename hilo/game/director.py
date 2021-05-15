@@ -72,17 +72,15 @@ class Director:
         self.current_card = 
         self.next_card = 
 
-    def update_points(self, guess, current_card, next_card):
-        """ (KeltonG To Do.)
-
-        Updates the important game information for each round of play.
-        In this case, that means updating the score.
-
+    def do_updates(self):
+        """Updates the score of the game after each round
+        
         Args:
             self (Director): An instance of Director.
         """
- 	pass
-        self.score += 
+
+        points = self.dealer.get_points()
+        self.score += points
 
     def can_play(self):
         """
@@ -119,4 +117,3 @@ class Director:
 
 	# TODO: insert code from W04 Solo Checkpoint Dice program.
         print()
-
