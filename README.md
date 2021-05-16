@@ -40,3 +40,4 @@ root                    (project root folder)
 * Kelton Green, gre16027@byui.edu
 * Dalton Willard, willarddalton@gmail.com
 * Agnes Haymore, hay19016@byui.edu
+* Mireya Vera Loo, ver20005@byui.edu

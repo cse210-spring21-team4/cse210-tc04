@@ -1,5 +1,5 @@
-from game.dealer import Dealer
-from random import randint
+from dealer import Dealer
+from random import sample
 import os
 class Director:
     """A code template for a person who directs the game. This class keeps
@@ -22,8 +22,9 @@ class Director:
         """
         self.keep_playing = True
         self.score = 300
-        self.dealer = Dealer()
+        self.deck = [range(1, 14)]
         self.card = 0
+        self.dealer = Dealer()
 
     def clear_screen(self):
         """
@@ -34,8 +35,7 @@ class Director:
         """
         os.system('cls' if os.name == 'nt' else 'clear')
 
-
-    def start_game(self):
+    def play_game(self):
         """
         Starts the game loop to control the sequence of play.
 
@@ -45,9 +45,16 @@ class Director:
         self.clear_screen()
         self.display_intro()
 
+        self.draw_card()
         while self.keep_playing:
             self.clear_screen()
+            print(f'The card is: {self.card}')
+            self.previous = self.card
             self.draw_card()
+            self.get_points()
+            print(f'Your score is: {self.score}')
+            if not self.dealer.want_to_continue():
+                break
             
     def display_intro(self):
         """
@@ -79,45 +86,25 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.card = randint(1,13)
+        
+        # If the deck is depleted (i.e. the list is empty), 'reshuffle' it.
+        if not self.deck:
+             self.deck = list(range(1,14))
+
+        # Pick a card, any card.
+        self.card = sample(self.deck, 1)
+
+        # 'Remove' (delete) the card from the 'deck' (list)
+        self.deck.remove(self.card)
 
     def get_points(self):
         """
-        Updates the score of the game after each round
+        Updates the score of the game.
         
         Args:
             self (Director): An instance of Director.
         """
-        hl = nextCard-lastCard
-        if((hl>=0 and guess == 'h') or (hl<= 0 and guess == 'l')):
+        if(self.card > self.previous) == self.dealer.is_it_higher():
             self.score += 100
         else:
             self.score += -75
-
-    def print_cards(self):
-
-
-    # def run_game(self):
-    #     """ (MireyaL To Do.)
-
-    #     Outputs the important game information for each round of play.
-    #     In this case, it means the cards drawn, guess higher/lower, and the score.
-
-    #     Args:
-    #         self (Director): An instance of Director.
-    #     """
-
-    #     print()
-    #     # TODO: print current_card
-
-    #     # Rule 4: The dealer guesses if the next one will be higher or lower.
-    #     # (AH) use string method .lower() to ensure comparison == will be ok.
-    #     # TODO: guess = # need a lowercase h or l from user input.
-
-    #     # TODO: print next_card
-
-    #     # (AH) Call method update_points(guess) to get class attribute of score.
-    #     # TODO: print score
-
-	# # TODO: insert code from W04 Solo Checkpoint Dice program.
-    #     print()
