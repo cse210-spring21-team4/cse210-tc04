@@ -40,5 +40,3 @@ root                    (project root folder)
 * Kelton Green, gre16027@byui.edu
 * Dalton Willard, willarddalton@gmail.com
 * Agnes Haymore, hay19016@byui.edu
-
-Icon made by [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/)

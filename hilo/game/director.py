@@ -1,76 +1,77 @@
 from game.dealer import Dealer
-
-
+from random import randint
+import os
 class Director:
-    """A code template for a person who directs the game.
-    The responsibility of this class of objects is to keep track
-    of the score and control the sequence of play.
+    """A code template for a person who directs the game. This class keeps
+    track of the score and controls the sequence of play.
 
     Attributes:
+        display_intro: Prints introductory information and rules to the console.
         keep_playing (boolean): Whether or not the dealer wants to keep playing.
         score (number): The total number of points earned.
         dealer (Dealer): An instance of the class of objects known as Dealer.
-        current_card (integer): Random integer between 1 to 13.
-        next_card (integer): Random integer between 1 to 13.
+        card (integer): Random integer between 1 to 13.
     """
 
     def __init__(self):
-        """ (AgnesH To Do.)
-
+        """
         The class constructor.
 
         Args:
             self (Director): an instance of Director.
         """
         self.keep_playing = True
-        self.dealer = Dealer()
-
-        # Rule 2: The dealer starts the game with 300 points.
         self.score = 300
-        # Rule 3: The director displays the current card.
-        self.current_card = Dealer()
-        # Rule 4: The dealer guesses if the next one will be higher or lower.
-        # Note: guess does not need to be a Class Attribute.
-        # guess = ["h", "l"]
-        # Rule 5: The director shows the next card.
-        self.next_card = Dealer()
+        self.dealer = Dealer()
+        self.card = 0
+
+    def clear_screen(self):
+        """
+        Checks for OS type, then sends command to clear terminal.
+
+        Args:
+            self (Director): an instance of Director.
+        """
+        os.system('cls' if os.name == 'nt' else 'clear')
+
 
     def start_game(self):
-        """ (AgnesH To Do.)
-
+        """
         Starts the game loop to control the sequence of play.
 
         Args:
             self (Director): an instance of Director.
         """
-
-        # (AH) Introduce Hi-Lo game.
-        print()
-        print("This game is Hi-Lo.")
-        print(f"Your starting score is:  {self.score}")
-        print("You gain 100 points if you guess correctly,")
-        print("but you lose 75 points if you guess incorrectly.")
-        print("When your score is 0, this game is over.")
+        self.clear_screen()
+        self.display_intro()
 
         while self.keep_playing:
-            self.get_cards()
-            self.run_game()
-            # moved call for update_points(self, guess) into run_game().
+            self.clear_screen()
+            self.draw_card()
+            
+    def display_intro(self):
+        """
+        Prints introductory information and rules to the console.
 
-    def get_cards(self):
-        """ (DaltonW To Do.)
+        Args:
+            self (Director): an instance of Director.
+        """
+        
+        print("\nThis game is Hi-Lo.")
+        print(f"Your starting score is {self.score}.\n")
+        print("You gain 100 points if you guess correctly,")
+        print("but you lose 75 points if you guess incorrectly.")
+        print("When your score is 0, this game is over.\n\n")
+        input("Press enter to begin.")
 
-        Gets the inputs at the beginning of each round of play.
-        In this case, that means:
-        Rule 3: The director displays the current card.
-        Rule 5: The director shows the next card.
+    def draw_card(self):
+        """ 
+        Determine cards for each round of play.
 
         Args:
             self (Director): An instance of Director.
         """
-	pass
-        self.current_card = 
-        self.next_card = 
+        self.card = randint(1,13)
 
     def do_updates(self):
         """Updates the score of the game after each round
@@ -83,37 +84,41 @@ class Director:
         self.score += points
 
     def can_play(self):
-        """
-        (SarahA To Do.)
+        #checks if the player has any points left.
+        return (self.score <= 0)
 
-        (AH) The can_play method determines whether or not the Dealer
-            can continue playing. It returns a boolean value
-            that is true if the score > 0.
-            Otherwise, it returns false.
-        """
-	pass	
+    def get_points(self):
+    #checks if the guess was right and returns the corresponding points.
+        hl = nextCard-lastCard
+        if((hl>=0 and guess == 'h') or (hl<= 0 and guess == 'l')):
+            return 100
+        else:
+            return -75
 
-    def run_game(self):
-        """ (MireyaL To Do.)
+    def print_cards(self):
 
-        Outputs the important game information for each round of play.
-        In this case, it means the cards drawn, guess higher/lower, and the score.
 
-        Args:
-            self (Director): An instance of Director.
-        """
+    # def run_game(self):
+    #     """ (MireyaL To Do.)
 
-        print()
-        # TODO: print current_card
+    #     Outputs the important game information for each round of play.
+    #     In this case, it means the cards drawn, guess higher/lower, and the score.
 
-        # Rule 4: The dealer guesses if the next one will be higher or lower.
-        # (AH) use string method .lower() to ensure comparison == will be ok.
-        # TODO: guess = # need a lowercase h or l from user input.
+    #     Args:
+    #         self (Director): An instance of Director.
+    #     """
 
-        # TODO: print next_card
+    #     print()
+    #     # TODO: print current_card
 
-        # (AH) Call method update_points(guess) to get class attribute of score.
-        # TODO: print score
+    #     # Rule 4: The dealer guesses if the next one will be higher or lower.
+    #     # (AH) use string method .lower() to ensure comparison == will be ok.
+    #     # TODO: guess = # need a lowercase h or l from user input.
 
-	# TODO: insert code from W04 Solo Checkpoint Dice program.
-        print()
+    #     # TODO: print next_card
+
+    #     # (AH) Call method update_points(guess) to get class attribute of score.
+    #     # TODO: print score
+
+	# # TODO: insert code from W04 Solo Checkpoint Dice program.
+    #     print()
