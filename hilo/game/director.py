@@ -64,6 +64,14 @@ class Director:
         print("When your score is 0, this game is over.\n\n")
         input("Press enter to begin.")
 
+    def can_play(self):
+        """
+        Verifies that game can still be played.
+        Args:
+            self (Director): An instance of Director.
+        """
+        self.keep_playing = (self.score > 0)
+
     def draw_card(self):
         """ 
         Determine cards for each round of play.
@@ -73,27 +81,18 @@ class Director:
         """
         self.card = randint(1,13)
 
-    def do_updates(self):
-        """Updates the score of the game after each round
+    def get_points(self):
+        """
+        Updates the score of the game after each round
         
         Args:
             self (Director): An instance of Director.
         """
-
-        points = self.dealer.get_points()
-        self.score += points
-
-    def can_play(self):
-        #checks if the player has any points left.
-        return (self.score <= 0)
-
-    def get_points(self):
-    #checks if the guess was right and returns the corresponding points.
         hl = nextCard-lastCard
         if((hl>=0 and guess == 'h') or (hl<= 0 and guess == 'l')):
-            return 100
+            self.score += 100
         else:
-            return -75
+            self.score += -75
 
     def print_cards(self):
 
