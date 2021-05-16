@@ -1,4 +1,5 @@
-# Hilo
+# :spades: :diamonds: Hilo :clubs: :hearts:
+
 How much are you willing to lose? Play <i>HiLo</i> to find out! The rules are 
 simple. The dealer draws a new card. You guess if the next one will be higher or 
 lower. Earn 100 points if you're right. Lose 75 if you're wrong. End the game at 
@@ -36,7 +37,8 @@ root                    (project root folder)
 ## Authors
 ---
 
-Mireya - mireyavera1511@gmail.com
-Sarah Adams - sarahadams2718@gmail.com
-Kelton Green - gre16027@byui.edu
-Agnes Haymore - agnes-pathway@haymore.com
+* Sarah Adams, sarahadams2718@gmail.com
+* Kelton Green, gre16027@byui.edu
+* Dalton Willard, willarddalton@gmail.com
+* Agnes Haymore, hay19016@byui.edu
+* Mireya Vera Loo, mireyavera1511@gmail.com
