@@ -38,5 +38,6 @@ root                    (project root folder)
 * TODO: Add your names and emails here
 
 Sarah Adams - sarahadams2718@gmail.com
-Kelton Green, gre16027@byui.edu
+Kelton Green - gre16027@byui.edu
+Agnes Haymore - agnes-pathway@haymore.com
 
