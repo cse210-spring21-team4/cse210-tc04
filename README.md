@@ -36,8 +36,9 @@ root                    (project root folder)
 
 ## Authors
 ---
-* Sarah Adams - sarahadams2718@gmail.com
+
+* Sarah Adams, sarahadams2718@gmail.com
 * Kelton Green, gre16027@byui.edu
 * Dalton Willard, willarddalton@gmail.com
 * Agnes Haymore, hay19016@byui.edu
-* Mireya Vera Loo, ver20005@byui.edu
+* Mireya Vera Loo, mireyavera1511@gmail.com
