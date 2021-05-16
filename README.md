@@ -35,9 +35,8 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your names and emails here
 
+Mireya - mireyavera1511@gmail.com
 Sarah Adams - sarahadams2718@gmail.com
 Kelton Green - gre16027@byui.edu
 Agnes Haymore - agnes-pathway@haymore.com
-
